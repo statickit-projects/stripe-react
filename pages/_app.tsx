@@ -1,17 +1,25 @@
 import Head from 'next/head';
 import { StaticKitProvider } from '@statickit/react';
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
+
+const stripePromise = loadStripe('pk_test_AEGjmWosrdHvOvnujk0cNHjQ');
 
 function App({ Component, pageProps }) {
   return (
     <StaticKitProvider site={process.env.siteId}>
-      <Head>
-        <link rel="icon" href="/favicon.png" />
-        <link
-          href="https://unpkg.com/tailwindcss@^1.1.3/dist/tailwind.min.css"
-          rel="stylesheet"
-        />
-      </Head>
-      <Component {...pageProps} />
+      <Elements stripe={stripePromise}>
+        <Head>
+          <link rel="icon" href="/favicon.png" />
+          <link
+            href="https://unpkg.com/tailwindcss@^1.1.3/dist/tailwind.min.css"
+            rel="stylesheet"
+          />
+        </Head>
+        <div className="antialiased bg-gray-900 h-screen">
+          <Component {...pageProps} />
+        </div>
+      </Elements>
     </StaticKitProvider>
   );
 }
