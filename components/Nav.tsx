@@ -21,7 +21,7 @@ const Nav = () => {
           </Link>
 
           <Link href="/">
-            <a className="mx-px px-4 py-3 border-b-2 border-transparent text-gray-300 hover:text-gray-200">
+            <a className="mx-px px-4 py-3 border-b-2 border-transparent text-gray-600 hover:text-gray-500">
               Subscriptions
             </a>
           </Link>

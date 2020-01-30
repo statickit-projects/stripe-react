@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@statickit/functions": "github:unstacked/statickit-functions#e270cc41-fd3d-4868-804f-60c1fea00057",
     "@statickit/react": "^2.0.1",
     "@stripe/react-stripe-js": "^1.0.0-beta.3",
     "@stripe/stripe-js": "^1.0.0-beta.4",

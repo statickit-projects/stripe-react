@@ -16,7 +16,7 @@ function App({ Component, pageProps }) {
             rel="stylesheet"
           />
         </Head>
-        <div className="antialiased bg-gray-900 h-screen">
+        <div className="antialiased bg-gray-900 h-full min-h-screen">
           <Component {...pageProps} />
         </div>
       </Elements>

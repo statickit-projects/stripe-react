@@ -1,1 +1,9 @@
-{}
+{
+  "functions": {
+    "createCharge": {
+      "app": "stripe",
+      "type": "createCharge",
+      "mock": true
+    }
+  }
+}
