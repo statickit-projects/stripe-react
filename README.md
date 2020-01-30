@@ -1,8 +1,8 @@
 # Stripe React Example
 
-An example of how to build React payment forms for Stripe.
+How to build Stripe payment forms with React & [StaticKit](https://statickit.com).
 
-[**Read the guide →**](https://statickit.com/guides/stripe-react)
+[**Read the guide →**](https://statickit.com/guides/stripe-payments-react)
 
 ## Usage
 
