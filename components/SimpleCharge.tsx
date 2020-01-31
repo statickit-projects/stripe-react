@@ -45,7 +45,7 @@ const BasicChargeForm = () => {
   }
 
   const isSubmitting = formState === 'submitting';
-  const buttonText = isSubmitting ? 'Submitting...' : 'Make a payment';
+  const buttonText = isSubmitting ? 'Submitting...' : 'Charge $25';
 
   return (
     <form onSubmit={handleSubmit}>
@@ -75,7 +75,7 @@ const BasicChargeForm = () => {
       <button
         type="submit"
         className={`${isSubmitting && 'opacity-75'} 
-          p-4 bg-purple-600 active:bg-indigo-500 shadow-lg leading-tight text-white font-bold rounded w-full`}
+          p-4 bg-purple-600 hover:bg-purple-500 shadow-lg leading-tight text-white font-bold rounded w-full`}
         disabled={isSubmitting}
       >
         {buttonText}

@@ -8,8 +8,8 @@ const NavLink = ({ href, children }) => {
   const router = useRouter();
   const isActive = router.asPath === href;
   const className = isActive
-    ? 'mx-px px-4 py-3 border-b-2 border-indigo-600 hover:border-indigo-500 text-gray-300 hover:text-gray-200'
-    : 'mx-px px-4 py-3 border-b-2 border-transparent text-gray-600 hover:text-gray-500';
+    ? 'mx-px px-4 py-3 border-b-2 border-indigo-600 hover:border-indigo-500 text-gray-300 hover:text-gray-200 whitespace-no-wrap'
+    : 'mx-px px-4 py-3 border-b-2 border-transparent text-gray-600 hover:text-gray-500 whitespace-no-wrap';
 
   return (
     <Link href={href}>
@@ -29,7 +29,7 @@ const Nav = () => {
       <div className="flex-grow text-center">
         <h1 className="pb-5 text-gray-100 font-bold">Stripe React Examples</h1>
         <div className="-mb-px flex justify-center">
-          <NavLink href="/">Charges</NavLink>
+          <NavLink href="/">Simple Charge</NavLink>
           <NavLink href="/subscriptions">Subscriptions</NavLink>
         </div>
       </div>

@@ -1,7 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
 import Nav from '../components/Nav';
-import BasicChargeForm from '../components/BasicChargeForm';
 
 const Subscriptions = () => {
   return (
