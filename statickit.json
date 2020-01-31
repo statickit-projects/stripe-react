@@ -4,6 +4,11 @@
       "app": "stripe",
       "type": "createCharge",
       "mock": true
+    },
+    "createCustomer": {
+      "app": "stripe",
+      "type": "createCustomer",
+      "mock": true
     }
   }
 }

@@ -30,7 +30,7 @@ const Nav = () => {
         <h1 className="pb-5 text-gray-100 font-bold">Stripe React Examples</h1>
         <div className="-mb-px flex justify-center">
           <NavLink href="/">Simple Charge</NavLink>
-          <NavLink href="/subscriptions">Subscriptions</NavLink>
+          <NavLink href="/save-customer">Save Customer</NavLink>
         </div>
       </div>
       <div className="w-8">

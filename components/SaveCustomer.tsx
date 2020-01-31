@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { useStaticKit } from '@statickit/react';
-import { createCharge } from '@statickit/functions';
+import { createCustomer, createCharge } from '@statickit/functions';
 
 type FormState = 'idle' | 'submitting' | 'succeeded';
 
-const SimpleCharge = () => {
+const SaveCustomer = () => {
   const client = useStaticKit();
   const stripe = useStripe();
   const elements = useElements();
 
+  const [email, setEmail] = useState('');
   const [stripeError, setStripeError] = useState(null);
   const [formState, setFormState] = useState<FormState>('idle');
 
@@ -17,20 +18,35 @@ const SimpleCharge = () => {
     e.preventDefault();
     setFormState('submitting');
 
+    // Tokenize the credit card
     const { error, token } = await stripe.createToken(
       elements.getElement(CardElement)
     );
 
     setStripeError(error);
 
+    // Bail if tokenization failed
     if (!token) {
       setFormState('idle');
       return;
     }
 
+    // Create the customer in Stripe and attach the tokenized credit card
+    const customerResult = await createCustomer(client, {
+      email,
+      source: token.id
+    });
+
+    // Bail if customer creation failed
+    if (customerResult.status !== 'ok') {
+      setFormState('idle');
+      return;
+    }
+
+    // Charge the customer
     const { status } = await createCharge(client, {
       amount: 2500,
-      source: token.id
+      customerToken: customerResult.customerToken
     });
 
     setFormState(status === 'ok' ? 'succeeded' : 'idle');
@@ -49,6 +65,24 @@ const SimpleCharge = () => {
 
   return (
     <form onSubmit={handleSubmit}>
+      <div className="pb-4">
+        <label
+          htmlFor="email"
+          className="flex p-4 rounded bg-gray-800 shadow-lg text-gray-200 leading-tight"
+        >
+          <div className="w-24 text-white font-semibold">Email</div>
+          <input
+            id="email"
+            type="email"
+            name="email"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+            className="flex-grow bg-transparent"
+            placeholder="jane@example.com"
+            required
+          />
+        </label>
+      </div>
       <div className="pb-4">
         <div className="p-4 rounded bg-gray-800 shadow-lg text-gray-200">
           <CardElement
@@ -84,4 +118,4 @@ const SimpleCharge = () => {
   );
 };
 
-export default SimpleCharge;
+export default SaveCustomer;
