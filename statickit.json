@@ -9,6 +9,11 @@
       "app": "stripe",
       "type": "createCustomer",
       "mock": true
+    },
+    "createSubscription": {
+      "app": "stripe",
+      "type": "createSubscription",
+      "mock": true
     }
   }
 }

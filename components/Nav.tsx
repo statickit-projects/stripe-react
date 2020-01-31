@@ -29,8 +29,8 @@ const Nav = () => {
       <div className="flex-grow text-center">
         <h1 className="pb-5 text-gray-100 font-bold">Stripe React Examples</h1>
         <div className="-mb-px flex justify-center">
-          <NavLink href="/">Simple Charge</NavLink>
-          <NavLink href="/save-customer">Save Customer</NavLink>
+          <NavLink href="/">Fixed Charge</NavLink>
+          <NavLink href="/subscription">Subscription</NavLink>
         </div>
       </div>
       <div className="w-8">

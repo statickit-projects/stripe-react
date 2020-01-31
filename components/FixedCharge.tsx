@@ -5,7 +5,7 @@ import { createCustomer, createCharge } from '@statickit/functions';
 
 type FormState = 'idle' | 'submitting' | 'succeeded';
 
-const SaveCustomer = () => {
+const FixedCharge = () => {
   const client = useStaticKit();
   const stripe = useStripe();
   const elements = useElements();
@@ -118,4 +118,4 @@ const SaveCustomer = () => {
   );
 };
 
-export default SaveCustomer;
+export default FixedCharge;

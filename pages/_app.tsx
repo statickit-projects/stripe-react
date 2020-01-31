@@ -12,7 +12,7 @@ function App({ Component, pageProps }) {
         <Head>
           <link rel="icon" href="/favicon.png" />
           <link
-            href="https://unpkg.com/tailwindcss@^1.1.3/dist/tailwind.min.css"
+            href="https://unpkg.com/tailwindcss@1.1.4/dist/tailwind.min.css"
             rel="stylesheet"
           />
         </Head>
