@@ -45,7 +45,7 @@ const SimpleCharge = () => {
   }
 
   const isSubmitting = formState === 'submitting';
-  const buttonText = isSubmitting ? 'Submitting...' : 'Charge $25';
+  const buttonText = isSubmitting ? 'Submitting...' : 'Pay $25';
 
   return (
     <form onSubmit={handleSubmit}>
