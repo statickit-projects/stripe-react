@@ -7,7 +7,7 @@ const Nav = () => {
   return (
     <header className="flex pt-4 px-4 bg-gray-900 border-b border-gray-800">
       <div className="w-8">
-        <a href="https://statickit.com" className="text-white">
+        <a href="https://statickit.com" className="text-white" target="_blank">
           <Logo />
         </a>
       </div>
@@ -31,6 +31,7 @@ const Nav = () => {
         <a
           href="https://github.com/statickit-projects/stripe-react"
           className="text-gray-400 hover:text-gray-200"
+          target="_blank"
         >
           <GitHub />
         </a>
