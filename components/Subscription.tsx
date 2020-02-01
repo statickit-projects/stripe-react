@@ -75,7 +75,7 @@ const Subscription = () => {
             name="email"
             value={email}
             onChange={e => setEmail(e.target.value)}
-            className="flex-grow bg-transparent placeholder-gray-500 focus:outline-none"
+            className="flex-grow bg-transparent placeholder-gray-600 focus:outline-none"
             placeholder="jane@example.com"
             required
           />
