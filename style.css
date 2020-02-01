@@ -1,7 +1,6 @@
 /* purgecss start ignore */
 @tailwind base;
 @tailwind components;
-/* purgecss end ignore */
 
 .StripeElement {
   @apply p-4 rounded bg-gray-800 shadow-lg text-gray-200 leading-tight;
@@ -35,5 +34,7 @@
 .btn:disabled {
   @apply opacity-75;
 }
+
+/* purgecss end ignore */
 
 @tailwind utilities;
