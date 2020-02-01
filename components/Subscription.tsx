@@ -78,7 +78,7 @@ const Subscription = () => {
             name="email"
             value={email}
             onChange={e => setEmail(e.target.value)}
-            className="flex-grow bg-transparent"
+            className="flex-grow bg-transparent placeholder-gray-500"
             placeholder="jane@example.com"
             required
           />
@@ -114,7 +114,10 @@ const Subscription = () => {
                 base: {
                   fontSize: '16px',
                   fontSmoothing: 'antialiased',
-                  color: '#fff'
+                  color: '#fff',
+                  '::placeholder': {
+                    color: '#a0aec0'
+                  }
                 }
               }
             }}
