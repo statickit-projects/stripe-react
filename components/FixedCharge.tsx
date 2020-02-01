@@ -66,10 +66,7 @@ const FixedCharge = () => {
   return (
     <form onSubmit={handleSubmit}>
       <div className="pb-4">
-        <label
-          htmlFor="email"
-          className="flex p-4 rounded bg-gray-800 shadow-lg text-gray-200 leading-tight"
-        >
+        <label htmlFor="email" className="input-wrapper">
           <div className="w-24 text-white font-semibold">Email</div>
           <input
             id="email"
@@ -77,30 +74,28 @@ const FixedCharge = () => {
             name="email"
             value={email}
             onChange={e => setEmail(e.target.value)}
-            className="flex-grow bg-transparent placeholder-gray-500"
+            className="flex-grow bg-transparent placeholder-gray-600 focus:outline-none"
             placeholder="jane@example.com"
             required
           />
         </label>
       </div>
       <div className="pb-4">
-        <div className="p-4 rounded bg-gray-800 shadow-lg text-gray-200">
-          <CardElement
-            onChange={e => setStripeError(e.error)}
-            options={{
-              style: {
-                base: {
-                  fontSize: '16px',
-                  fontSmoothing: 'antialiased',
-                  color: '#fff',
-                  '::placeholder': {
-                    color: '#a0aec0'
-                  }
+        <CardElement
+          onChange={e => setStripeError(e.error)}
+          options={{
+            style: {
+              base: {
+                fontSize: '16px',
+                fontSmoothing: 'antialiased',
+                color: '#fff',
+                '::placeholder': {
+                  color: '#718096'
                 }
               }
-            }}
-          />
-        </div>
+            }
+          }}
+        />
 
         {stripeError && (
           <div className="pt-2 font-bold text-sm text-red-600">
@@ -109,12 +104,7 @@ const FixedCharge = () => {
         )}
       </div>
 
-      <button
-        type="submit"
-        className={`${isSubmitting && 'opacity-75'} 
-          p-4 bg-purple-600 hover:bg-purple-500 shadow-lg leading-tight text-white font-bold rounded w-full`}
-        disabled={isSubmitting}
-      >
+      <button type="submit" className="btn" disabled={isSubmitting}>
         {buttonText}
       </button>
     </form>

@@ -67,10 +67,7 @@ const Subscription = () => {
   return (
     <form onSubmit={handleSubmit}>
       <div className="pb-4">
-        <label
-          htmlFor="email"
-          className="flex p-4 rounded bg-gray-800 shadow-lg text-gray-200 leading-tight"
-        >
+        <label htmlFor="email" className="input-wrapper">
           <div className="w-24 text-white font-semibold">Email</div>
           <input
             id="email"
@@ -78,7 +75,7 @@ const Subscription = () => {
             name="email"
             value={email}
             onChange={e => setEmail(e.target.value)}
-            className="flex-grow bg-transparent placeholder-gray-500"
+            className="flex-grow bg-transparent placeholder-gray-500 focus:outline-none"
             placeholder="jane@example.com"
             required
           />
@@ -86,43 +83,49 @@ const Subscription = () => {
       </div>
 
       <div className="pb-4">
-        <label
-          htmlFor="plan"
-          className="flex p-4 rounded bg-gray-800 shadow-lg text-gray-200 leading-tight"
-        >
+        <label htmlFor="plan" className="input-wrapper">
           <div className="w-24 text-white font-semibold">Plan</div>
-          <select
-            id="plan"
-            name="plan"
-            value={plan}
-            onChange={e => setPlan(e.target.value)}
-            className="p-0 flex-grow bg-transparent"
-          >
-            <option value="plan_00001">Solo ($25/month)</option>
-            <option value="plan_00002">Small Team ($50/month)</option>
-            <option value="plan_00003">Large Team ($100/month)</option>
-          </select>
+          <div className="relative flex-grow">
+            <select
+              id="plan"
+              name="plan"
+              value={plan}
+              onChange={e => setPlan(e.target.value)}
+              className="block appearance-none w-full bg-transparent pl-0 pt-0 pb-0 pr-8 focus:outline-none"
+            >
+              <option value="plan_00001">Solo ($25/month)</option>
+              <option value="plan_00002">Small Team ($50/month)</option>
+              <option value="plan_00003">Large Team ($100/month)</option>
+            </select>
+            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-200">
+              <svg
+                className="fill-current h-4 w-4"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+              >
+                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+              </svg>
+            </div>
+          </div>
         </label>
       </div>
 
       <div className="pb-4">
-        <div className="p-4 rounded bg-gray-800 shadow-lg text-gray-200">
-          <CardElement
-            onChange={e => setStripeError(e.error)}
-            options={{
-              style: {
-                base: {
-                  fontSize: '16px',
-                  fontSmoothing: 'antialiased',
-                  color: '#fff',
-                  '::placeholder': {
-                    color: '#a0aec0'
-                  }
+        <CardElement
+          onChange={e => setStripeError(e.error)}
+          options={{
+            style: {
+              base: {
+                fontSize: '16px',
+                fontSmoothing: 'antialiased',
+                color: '#fff',
+                '::placeholder': {
+                  color: '#718096'
                 }
               }
-            }}
-          />
-        </div>
+            }
+          }}
+        />
 
         {stripeError && (
           <div className="pt-2 font-bold text-sm text-red-600">
@@ -131,12 +134,7 @@ const Subscription = () => {
         )}
       </div>
 
-      <button
-        type="submit"
-        className={`${isSubmitting && 'opacity-75'} 
-          p-4 bg-purple-600 hover:bg-purple-500 shadow-lg leading-tight text-white font-bold rounded w-full`}
-        disabled={isSubmitting}
-      >
+      <button type="submit" className="btn" disabled={isSubmitting}>
         {buttonText}
       </button>
     </form>

@@ -2,4 +2,38 @@
 @tailwind base;
 @tailwind components;
 /* purgecss end ignore */
+
+.StripeElement {
+  @apply p-4 rounded bg-gray-800 shadow-lg text-gray-200 leading-tight;
+}
+
+.StripeElement--focus {
+  @apply shadow-outline;
+}
+
+.input-wrapper {
+  @apply flex p-4 rounded bg-gray-800 shadow-lg text-gray-200 leading-tight;
+}
+
+.input-wrapper:focus-within {
+  @apply shadow-outline;
+}
+
+.input-wrapper > input::placeholder {
+  @apply opacity-100;
+}
+
+.btn {
+  @apply p-4 bg-purple-600 shadow-lg leading-tight text-white font-bold rounded w-full;
+}
+
+.btn:active {
+  @apply bg-purple-700;
+  transform: translateY(1px);
+}
+
+.btn:disabled {
+  @apply opacity-75;
+}
+
 @tailwind utilities;
